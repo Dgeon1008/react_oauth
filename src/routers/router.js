@@ -5,6 +5,7 @@ import MyPage from "../pages/my/MyPage";
 import SignIn from "../pages/signIn/SignIn";
 import SignSuccess from "../pages/signIn/SignSuccess";
 import SignUp from "../pages/signUp/SignUp";
+import AuthLayout from "../pages/layout/AuthLayout";
 
 const router = createBrowserRouter([
   {
@@ -16,8 +17,14 @@ const router = createBrowserRouter([
         element : <Main />
       },
       {
-        path : "/my",
-        element : <MyPage />
+        path : "/member",
+        element : <AuthLayout />,
+        children : [
+          {
+            path : "my",
+            element : <MyPage />
+          }
+        ]
       }
     ]
   },
